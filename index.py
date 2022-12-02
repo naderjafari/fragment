@@ -24,7 +24,7 @@ def respond():
 
     # Telegram understands UTF-8, so encode text for unicode compatibility
 
-    if update.message.text is not None:
+    if (update.message is not None & update.message.text is not None):
         chat_id = update.message.chat.id
         msg_id = update.message.message_id
         text = update.message.text.encode('utf-8').decode()
