@@ -14,15 +14,15 @@ app = Flask(__name__)
 @app.route('/{}'.format(TOKEN), methods=['POST'])
 def respond():
    # retrieve the message in JSON and then transform it to Telegram object
-   print('request.get_json(force=True):',request.get_json(force=True))
-   print('Chat ID: ',bot.chat_id)
+   print('Request:',request.get_json(force=True))
+   print('Bot: ',bot)
    update = telegram.Update.de_json(request.get_json(force=True), bot)
 
    chat_id = update.message.chat.id
    msg_id = update.message.message_id
 
    # Telegram understands UTF-8, so encode text for unicode compatibility
-   print('update.message.text: ',update.message.text)
+   print('update.message: ',update.message)
 
    text = update.message.text.encode('utf-8').decode()
    # for debugging purposes only
