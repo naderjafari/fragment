@@ -1,7 +1,14 @@
 import re
 from flask import Flask, request
 import telegram
+import logging
 from telebot.credentials import bot_token, bot_user_name, URL
+
+# Enable logging
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+logger = logging.getLogger(__name__)
 
 
 global bot
@@ -28,6 +35,8 @@ def respond():
         chat_id = update.message.chat.id
         msg_id = update.message.message_id
         text = update.message.text.encode('utf-8').decode()
+        print("Chat ID: ",chat_id)
+
         # for debugging purposes only
         print("got text message :", text)
         # the first time you chat with the bot AKA the welcoming message
