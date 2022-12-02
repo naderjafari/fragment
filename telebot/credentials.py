@@ -7,5 +7,5 @@ print('Bot User Name:',bot_user_name)
 
 URL = os.environ.get('URL')
 
-print('Bot User Name:',bot_user_name)
+print('Bot URL:',URL)
 

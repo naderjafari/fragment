@@ -19,12 +19,13 @@ def respond():
     print('Bot: ', bot)
     update = telegram.Update.de_json(request.get_json(force=True), bot)
 
+    print('Update: ', update)
+    print('Update Message: ', update.message)
+    
     chat_id = update.message.chat.id
     msg_id = update.message.message_id
 
     # Telegram understands UTF-8, so encode text for unicode compatibility
-    print('Update: ', update)
-    print('Update Message: ', update.message)
 
     if update.message.text is not None:
         text = update.message.text.encode('utf-8').decode()
