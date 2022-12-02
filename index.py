@@ -21,13 +21,12 @@ def respond():
 
     print('Update: ', update)
     print('Update Message: ', update.message)
-    
-    chat_id = update.message.chat.id
-    msg_id = update.message.message_id
 
     # Telegram understands UTF-8, so encode text for unicode compatibility
 
     if update.message.text is not None:
+        chat_id = update.message.chat.id
+        msg_id = update.message.message_id
         text = update.message.text.encode('utf-8').decode()
         # for debugging purposes only
         print("got text message :", text)
@@ -57,9 +56,7 @@ def respond():
                 bot.sendMessage(
                     chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
     else:
-        bot.sendMessage(
-            chat_id=chat_id, text="There was a problem in the name you used, please enter different name", reply_to_message_id=msg_id)
-
+        print('Bad Message')
     return 'ok'
 
 
