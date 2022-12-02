@@ -36,6 +36,7 @@ def respond():
         msg_id = update.message.message_id
         text = update.message.text.encode('utf-8').decode()
         print("Chat ID: ",chat_id)
+        print("Message Id: ",msg_id)
 
         # for debugging purposes only
         print("got text message :", text)
